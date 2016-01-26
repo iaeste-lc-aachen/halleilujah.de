@@ -44,6 +44,9 @@ if ( isset( $_POST['email'] ) && strlen( $_POST['email'] ) < 150 ) {
 	$destination = explode( '/', $_SERVER['REQUEST_URI'] );
 	array_pop( $destination );
 	$destination = implode( '/', $destination );
+	if ( ! $destination ) {
+		$destination = '/';
+	}
 
 	setcookie( 'halleilujah-mail-success', '1', time() + 5, '/' );
 	header( 'Location: ' . $destination, true, 303 );

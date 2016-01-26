@@ -151,6 +151,9 @@ class Registration {
 		$destination = explode( '/', $_SERVER['REQUEST_URI'] );
 		array_pop( $destination );
 		$destination = implode( '/', $destination );
+		if ( ! $destination ) {
+			$destination = '/';
+		}
 
 		$ob = ob_get_clean();
 		setcookie(
