@@ -1,0 +1,31 @@
+AddDefaultCharset UTF-8
+DefaultLanguage de-DE
+FileETag None
+Options -Indexes
+DirectoryIndex index.html
+
+# Deny access to hidden files
+<Files .*>
+  order allow,deny
+  deny from all
+</Files>
+
+<Files *.psd>
+  order allow,deny
+  deny from all
+</Files>
+
+<FilesMatch "\.(html|htm)$">
+  Header set Cache-Control "max-age=600, public"
+</FilesMatch>
+
+# Hide php file extension
+RewriteEngine on
+# If the request URI doesn't end on PHP
+RewriteCond %{REQUEST_URI} !\.php$ [NC]
+# The following rule is simpler but does not work on Windows:
+# RewriteRule !.*\.php$ %{REQUEST_FILENAME}.php [END]
+# "add per-dir prefix is applied" twice by Apache
+# If a PHP file with that name exists
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ $1.php

@@ -1,0 +1,6 @@
+- Install the Mail PEAR package: https://pear.php.net/manual/en/package.mail.mail.php
+  https://pear.php.net/package/Mail/download - (copy included in the repo)
+- Create the database schema: registrations.sql
+- Copy .event.cfg.sample.ini to .event.cfg.ini and adjust
+- If you want this page to be indexed by search engines, delete the robots.txt
+- Test the entire setup: Send a message, register, browse through all pages

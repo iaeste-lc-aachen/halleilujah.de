@@ -1,0 +1,13 @@
+Moving to a new domain:
+sed -i -- 's/old_domain\.com/new_domain.com/g' *
+
+Changing owner:
+Impressum
+
+Annually:
+- Create event in Google calendar, update the link in index.html
+- Update the .ics file:
+    DTSTART;TZID=Europe/Berlin:YYYYMMDDTHH0000
+    DTEND;TZID=Europe/Berlin:YYYYMMDDTHH0000
+- index.html
+    Search for <!-- u/a --> and update the dates.
