@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Datenbank: `halleiluja`
+-- Datenbank: `halleilujah`
 --
 
 -- --------------------------------------------------------
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `registrations` (
   `food` varchar(255) DEFAULT NULL,
   `payment` varchar(45) DEFAULT NULL,
   `comment` text,
-  `dataproptection` int(11) DEFAULT NULL,
+  `dataprotection` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=utf8;
 

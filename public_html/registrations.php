@@ -140,7 +140,7 @@ class Registrations {
 		}
 		$ep = EventConfig::getInstance();
 		if ( isset( $_POST['pass'] ) && isset( $_POST['user'] ) &&
-			 ( sha1( $_POST['pass'] ) === $ep->getAccessPass() ) &&
+			 ( hash('whirlpool', $ep->getAccessSalt() . $_POST['pass'] ) === $ep->getAccessPass() ) &&
 			 ( $_POST['user'] === $ep->getAccessUser() ) ) {
 			$this->showData( $pdo );
 			return;

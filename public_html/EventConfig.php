@@ -27,6 +27,29 @@ class EventConfig {
 
 	public function __construct() {
 		$this->config = parse_ini_file( '.event.cfg.ini', true );
+		
+		// server config may override ini file config
+		// set via setenv in apache config file
+		// (SMTP account data is not used, since php mail() is used)
+		
+		$config_entries = array(
+			'CFG_PHP_INCLUDES'		=> array('php', 'includes'),
+			'CFG_DB_CONNECTION'		=> array('db', 'connection'),
+			'CFG_DB_USER'			=> array('db', 'user'),
+			'CFG_DB_PASS'			=> array('db', 'pass'),
+			'CFG_SMTP_SENDER'		=> array('smtp', 'sender'),
+			'CFG_SMTP_RECIPIENT'	=> array('smtp', 'recipient'),
+			'CFG_ACCESS_USER'		=> array('access', 'user'),
+			'CFG_ACCESS_PASS'		=> array('access', 'pass'),
+			'CFG_ACCESS_SALT'		=> array('access', 'salt'),
+			'CFG_EVENT_MAXPLACES'	=> array('event', 'maxplaces'),
+			);
+			
+		foreach($config_entries as $cfg_name => $cfg_config)
+		{
+			if(isset($_SERVER[$cfg_name]))
+				$this->config[$cfg_config[0]][$cfg_config[1]] = $_SERVER[$cfg_name];
+		}
 	}
 
 	public function getDBConnectionParams() {
@@ -87,6 +110,10 @@ class EventConfig {
 
 	public function getAccessPass() {
 		return $this->config['access']['pass'];
+	}
+
+	public function getAccessSalt() {
+		return $this->config['access']['salt'];
 	}
 
 	public function getMaxPlaces() {

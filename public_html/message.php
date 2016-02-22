@@ -21,26 +21,17 @@
  */
 if ( isset( $_POST['email'] ) && strlen( $_POST['email'] ) < 150 ) {
 	require_once 'EventConfig.php';
-	require_once 'Mail.php';
+
 	$ec = EventConfig::getInstance();
 	$ec->augmentIncludePath();
-
-	$recipients = $ec->getSMTPRecipient();
-
-	$headers['From'] = $ec->getSMTPSender();
-	$headers['To'] = $ec->getSMTPRecipient();
-	$headers['Subject'] = $_POST['subject'];
 
 	$body = 'supposed sender: ' . $_POST['name'] . ' <' . $_POST['email'] . ">\n" .
 		 $_POST['message'];
 
-	$ec = EventConfig::getInstance();
-	$smtpinfo = $ec->getSMTPInfo();
+	$sender = filter_var($ec->getSMTPSender(), FILTER_VALIDATE_EMAIL);
 
-	// Create the mail object using the Mail::factory method
-	$mail_object = & Mail::factory( 'smtp', $smtpinfo );
+	mail($ec->getSMTPRecipient(), $_POST['subject'], $body, $sender ? 'From: ' . $sender : '');
 
-	$mail_object->send( $recipients, $headers, $body );
 	$destination = explode( '/', $_SERVER['REQUEST_URI'] );
 	array_pop( $destination );
 	$destination = implode( '/', $destination );

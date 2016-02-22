@@ -15,7 +15,8 @@ The site requires MySQL Version >= 5
 
 #### Apache ####
 
-The site was designed to be served by an Apache webserver, and requires the module mod_rewrite
+The site was designed to be served by an Apache webserver, and requires the modules mod_rewrite and mod_headers
+.htaccess is intended for Apache 2.4, might need modification for different Apache versions
 
 # Installation, updating
 

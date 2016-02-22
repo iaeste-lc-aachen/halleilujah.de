@@ -418,7 +418,7 @@ class FormDefinition {
 				'placeholder' => 'In case you want to organize lodging your own or if there are other important things like the need for special accommodation we should be aware of or if you have questions ... here they go',
 				'type' => 'textarea'
 			),
-			'dataproptection' => array(
+			'dataprotection' => array(
 				'label' => 'I agree that my data is saved and processed by IAESTE LC Halle. I allow IAESTE LC Halle and IAESTE Team Leipzig to send me e-Mail regarding this event and to use my phone number for contacting me about this event. I have the right to cancel this agreement at any time by sending an e-Mail to IAESTE@uni-halle.de demanding that but in this case I will keep myself prepared for updates regarding this event by regularly visiting the website and e-Mailing IAESTE LC Halle prior to starting travelling to Leipzig. I can cancel my event registration but I might be obliged to pay compensation for expenses the organizers had due to late cancellation on your side. I will only register once. I will care for planning the journey and the fare to Leipzig and from Halle myself. I am at least 18 years old.',
 				'type' => 'checkbox'
 			)

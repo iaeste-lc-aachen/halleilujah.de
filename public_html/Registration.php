@@ -37,7 +37,7 @@ class Registration {
 			echo 'Bummer! Our database is currently unavailable. Please try again later.';
 			return;
 		}
-		if ( isset( $_POST['firstname'] ) && isset( $_POST['dataproptection'] ) ) {
+		if ( isset( $_POST['firstname'] ) && isset( $_POST['dataprotection'] ) ) {
 			$this->processData( $pdo );
 			return;
 		}
@@ -130,8 +130,15 @@ class Registration {
 	private function processData( $dbo ) {
 		// In theory we would validate data but since we are keeping them private
 		// and we have plenty of resources, I don't feel this is needed.
-		$cols = 'firstname,lastname,gender,lc,homecountry,email,mobile,food,payment,comment,dataproptection';
-		$sql = 'SET NAMES utf8; INSERT INTO registrations (' . $cols .
+		$cols = 'firstname,lastname,gender,lc,homecountry,email,mobile,food,payment,comment,dataprotection';
+
+		$_POST['dataprotection'] = isset($_POST['dataprotection']) ? 1 : 0;
+
+		$r = $dbo->query('SET NAMES utf8');
+		if($r)
+			$r->closeCursor();
+		
+		$sql = 'INSERT INTO registrations (' . $cols .
 			 ') VALUES (:' . implode( ',:', explode( ',', $cols ) ) . ')';
 		$q = $dbo->prepare( $sql );
 		$params = array();
@@ -141,7 +148,9 @@ class Registration {
 			$params[':' . $col] = $_POST[$col];
 			$body .= $col . ': ' . $_POST[$col] . "\n";
 		}
-		$dboResult = ! ! $q->execute( $params );
+		
+		$dboResult = $q->execute($params);
+		
 		try {
 			$emailResult = ! ! $this->sendEMail( $subject, $body );
 		} catch ( Exception $ex ) {
@@ -170,6 +179,18 @@ class Registration {
 	}
 
 	private function sendEMail( $subject, $body ) {
+		$ec = EventConfig::getInstance();
+
+		$to = filter_var($ec->getSMTPRecipient(), FILTER_VALIDATE_EMAIL);
+		$from = filter_var($ec->getSMTPSender(), FILTER_VALIDATE_EMAIL);
+
+		if($to === false || $from === false)
+			return false;
+		else
+			return mail($to, $subject, $body, "From: $from\r\nContent-type: text/plain; charset=UTF-8");
+	}
+
+	private function OLD_sendEMail( $subject, $body ) {
 		$ec = EventConfig::getInstance();
 		$ec->augmentIncludePath();
 		include_once 'Mail.php';

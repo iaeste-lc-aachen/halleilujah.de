@@ -6,13 +6,11 @@ DirectoryIndex index.html
 
 # Deny access to hidden files
 <Files .*>
-  order allow,deny
-  deny from all
+	Require all denied
 </Files>
 
 <Files *.psd>
-  order allow,deny
-  deny from all
+	Require all denied
 </Files>
 
 <FilesMatch "\.(html|htm)$">
