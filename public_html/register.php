@@ -323,15 +323,15 @@ a.badge:hover, a.badge:focus {
 
 			<ul class="icons">
 				<li><a
-					href="https://twitter.com/share?via=IAESTE%20Germany&amp;text=IAESTE%20HalLeiLujah%20Weekend&amp;url=https%3A%2F%2Fiaeste.halle.rocks"
+					href="https://twitter.com/share?via=IAESTE%20Germany&amp;text=IAESTE%20HalLeiLujah%20Weekend&amp;url=https%3A%2F%2Fwww.halleilujah.de"
 					target="_blank" title="Tweet about this weekend"
 					class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
 				<li><a
-					href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fiaeste.halle.rocks&amp;t=IAESTE%20HalLeiLujah%20Weekend"
+					href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.halleilujah.de&amp;t=IAESTE%20HalLeiLujah%20Weekend"
 					target="_blank" title="Share on Facebook"
 					class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
 				<li><a
-					href="https://plus.google.com/share?url=https%3A%2F%2Fiaeste.halle.rocks"
+					href="https://plus.google.com/share?url=https%3A%2F%2Fwww.halleilujah.de"
 					target="_blank" title="Share on Google+"
 					class="icon circle fa-google-plus"><span class="label">Google+</span></a></li>
 			</ul>
