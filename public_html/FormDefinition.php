@@ -386,7 +386,7 @@ class FormDefinition {
 			'food' => array(
 				'label' => 'Which kind of food is problematic for you?',
 				'placeholder' => 'type for suggestions ...',
-				'tags' => array(
+				'autosuggest' => array(
 					'pork',
 					'beef',
 					'all non- kosher (I\'ll care myself for my food)',
