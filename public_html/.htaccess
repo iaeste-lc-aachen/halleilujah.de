@@ -17,8 +17,16 @@ DirectoryIndex index.html
   Header set Cache-Control "max-age=600, public"
 </FilesMatch>
 
-# Hide php file extension
 RewriteEngine on
+
+# Rewrite requests without extension to html
+# If the request URI doesn't end on html
+RewriteCond %{REQUEST_URI} !\.html$ [NC]
+# If an HTML file with that name exists
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html
+
+# Rewrite requests without extension to php
 # If the request URI doesn't end on PHP
 RewriteCond %{REQUEST_URI} !\.php$ [NC]
 # The following rule is simpler but does not work on Windows:
