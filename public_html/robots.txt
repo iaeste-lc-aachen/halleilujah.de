@@ -1,2 +1,2 @@
-Sitemap: http://www.halleilujah.de/sitemap.xml
+Sitemap: https://www.halleilujah.de/sitemap.xml
 

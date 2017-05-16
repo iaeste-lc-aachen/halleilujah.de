@@ -138,17 +138,18 @@ class Registration {
 		if($r)
 			$r->closeCursor();
 		
-		$sql = 'INSERT INTO registrations (' . $cols .
-			 ') VALUES (:' . implode( ',:', explode( ',', $cols ) ) . ')';
+		$sql = 'INSERT INTO registrations (reg_time,' . $cols .
+			 ') VALUES (:reg_time,:' . implode( ',:', explode( ',', $cols ) ) . ')';
 		$q = $dbo->prepare( $sql );
 		$params = array();
 		$subject = 'Registration for HalLeiLujah';
 		$body = '';
+		$params[':reg_time'] = date('Y-m-d H:i:s');
 		foreach ( explode( ',', $cols ) as $col ) {
 			$params[':' . $col] = $_POST[$col];
 			$body .= $col . ': ' . $_POST[$col] . "\n";
 		}
-		
+
 		$dboResult = $q->execute($params);
 		
 		try {

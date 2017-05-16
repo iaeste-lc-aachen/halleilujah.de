@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS `registrations` (
   `payment` varchar(45) DEFAULT NULL,
   `comment` text,
   `dataprotection` int(11) DEFAULT NULL,
+  `reg_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=utf8;
 

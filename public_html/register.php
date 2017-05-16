@@ -263,7 +263,7 @@ a.badge:hover, a.badge:focus {
 		<header id="header">
 			<h1 id="logo">
 				<a href="./">HalLeiLujah</a> <small><span>by <a
-						href="http://iaeste-halle.de">LC Halle</a>, Team Leipzig
+						href="http://iaeste-halle.de">LC Halle</a> and Leipzig
 				</span></small>
 			</h1>
 			<nav id="nav">

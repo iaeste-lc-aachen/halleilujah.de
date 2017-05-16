@@ -402,9 +402,9 @@ class FormDefinition {
 			'payment' => array(
 				'label' => 'Preferred payment option*',
 				'radio' => array(
-					'paypal' => array(
-						'label' => 'PayPal, 5 days in advance'
-					),
+					#'paypal' => array(
+					#	'label' => 'PayPal, 5 days in advance'
+					#),
 					'wiretransfer' => array(
 						'label' => 'Wire-transfer, 5 days in advance'
 					),
