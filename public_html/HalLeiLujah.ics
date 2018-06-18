@@ -24,8 +24,8 @@ METHOD:REQUEST
 BEGIN:VEVENT
 UID:ics.teddyservice1437339398
 CLASS:PUBLIC
-DTSTART;TZID=Europe/Berlin:20170616T170000
-DTEND;TZID=Europe/Berlin:20170618T140000
+DTSTART;TZID=Europe/Berlin:20180720T170000
+DTEND;TZID=Europe/Berlin:20180722T140000
 LOCATION:Leipzig/Halle
 SUMMARY:HalLeiLuja weekend
 DESCRIPTION:HalLeiLuja is a weekend is part of the IAESTE summer programme and exclusively for IAESTE students in Germany.\nIt is organized by IAESTE LC Halle and IAESTE Team Leipzig. This weekend focuses on a mixture of culture and sports. You will be presented with an extensive programme. We care for your food, accommodation and transport in Halle and Leipzig, you enjoy the cities.
